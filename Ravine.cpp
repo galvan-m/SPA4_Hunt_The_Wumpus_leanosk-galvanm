@@ -16,3 +16,6 @@ std::string Ravine::getWarning() const {
 bool Ravine::isFatal() const {
     return true;
 }
+std::string Ravine::getDisplayChar() const {
+    return "R";
+}

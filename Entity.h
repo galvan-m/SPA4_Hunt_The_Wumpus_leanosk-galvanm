@@ -17,6 +17,9 @@ public:
 
     // Warnings/hints for nearby rooms
     virtual std::string getWarning() const = 0;
+
+    // display character for given entity
+    virtual std::string getDisplayChar() const = 0;
 };
 
 

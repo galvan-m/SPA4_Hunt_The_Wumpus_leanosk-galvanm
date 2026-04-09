@@ -10,8 +10,10 @@
 class Creeper : public Inhibitor {
     public:
     void interact() override;
-    std::string getWarning();
+    std::string getWarning() const override;
     bool isFatal() const override;
+    std::string getDisplayChar() const override;
+
 };
 
 

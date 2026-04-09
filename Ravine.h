@@ -12,6 +12,8 @@ public:
     void interact() override;
     std::string getWarning() const override;
     bool isFatal() const override;
+    std::string getDisplayChar() const override;
+
 };
 
 

@@ -14,3 +14,6 @@ void Diamond::interact() {
 std::string Diamond::getWarning() const {
     return "You see a glint of light shining off a diamond!";
 }
+std::string Diamond::getDisplayChar() const {
+    return "D";
+}

@@ -22,12 +22,34 @@ Map::Map() {
         rooms[i] = new Room[MAP_WIDTH];
     }
     generate_rooms();
+    srand(time(0));
+    addEntity(new Player());
+    addEntity(new Creeper());
+    addEntity(new Diamond());
+    addEntity(new Enderman());
+    addEntity(new Ravine());
+    addEntity(new Enderman());
+    addEntity(new Ravine());
+    addEntity(new Sword());
+
 }
 Map::~Map() {
     for (int i = 0; i < MAP_HEIGHT; i++) {
         delete[] rooms[i];
     }
     delete[] rooms;
+}
+void Map::addEntity(Entity* entity) {
+    bool placed = false;
+    while (!placed) {
+        int r = rand() % MAP_HEIGHT;
+        int c = rand() % MAP_WIDTH;
+
+        if (rooms[r][c].getEntity() == nullptr) {
+            rooms[r][c].setEntity(entity);
+            placed = true;
+        }
+    }
 }
 void Map::generate_rooms() {
     for (int i = 0; i < MAP_HEIGHT; i++) {
@@ -52,21 +74,12 @@ void Map::generate_rooms() {
 void Map::printMap() {
     for (int i = 0; i < MAP_HEIGHT; i++) {
         for (int j = 0; j < MAP_WIDTH; j++) {
-            Room* room = &rooms[i][j];
-            if (typeid(room->getEntity()) == typeid(Player)) {
-                cout << "P ";
-            } else if (typeid(room->getEntity()) == typeid(Enderman)) {
-                cout << "E ";
-            } else if (typeid(room->getEntity()) == typeid(Ravine)) {
-                cout << "R ";
-            } else if (typeid(room->getEntity()) == typeid(Sword)) {
-                cout << "S ";
-            } else if (typeid(room->getEntity()) == typeid(Creeper)) {
-                cout << "C ";
-            } else if (typeid(room->getEntity()) == typeid(Diamond)) {
-                cout << "D ";
-            } else if (room->getEntity() == nullptr) {
+            Entity* entity = rooms[i][j].getEntity();
+
+            if (entity == nullptr) {
                 cout << ". ";
+            } else {
+                cout << entity->getDisplayChar() << " ";
             }
 
         }

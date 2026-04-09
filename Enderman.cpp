@@ -18,3 +18,6 @@ std::string Enderman::getWarning() const {
 bool Enderman::isFatal() const {
     return false;
 }
+std::string Enderman::getDisplayChar() const {
+    return "E";
+}

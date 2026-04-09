@@ -3,3 +3,12 @@
 //
 
 #include "Player.h"
+void Player::interact() {
+
+}
+std::string Player::getWarning() const {
+    return "";
+}
+std::string Player::getDisplayChar() const {
+    return "P";
+}

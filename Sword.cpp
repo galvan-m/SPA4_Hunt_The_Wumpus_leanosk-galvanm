@@ -14,3 +14,6 @@ void Sword::interact() {
 std::string Sword::getWarning() const {
     return "You hear a sharp clang of metal against rock!";
 }
+std::string Sword::getDisplayChar() const {
+    return "S";
+}

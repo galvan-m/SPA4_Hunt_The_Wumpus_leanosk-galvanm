@@ -4,6 +4,8 @@
 
 #ifndef SPA4_HUNT_THE_WUMPUS_LEANOSK_GALVANM_MAP_H
 #define SPA4_HUNT_THE_WUMPUS_LEANOSK_GALVANM_MAP_H
+#include "Entity.h"
+#include "Player.h"
 
 class Room;
 constexpr int MAP_HEIGHT = 6;
@@ -13,6 +15,7 @@ class Map {
 public:
     Map();
     ~Map();
+    void addEntity(Entity *entity);
     void printMap();
 
 private:
