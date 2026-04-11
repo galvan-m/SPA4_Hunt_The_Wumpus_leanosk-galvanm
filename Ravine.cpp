@@ -3,10 +3,13 @@
 //
 #include <iostream>
 #include "Ravine.h"
+
+#include "Miner.h"
 using std::cout;
 
-void Ravine::interact() {
+void Ravine::interact(Miner& miner) {
     std::cout << "You fell into a pit and died! Game over.\n";
+    miner.kill();
 }
 
 std::string Ravine::getWarning() const {

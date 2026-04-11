@@ -8,9 +8,10 @@
 
 
 class Diamond : public Item {
-    void interact() override;
-    std::string getWarning() const override;
-    std::string getDisplayChar() const override;
+    public:
+        void interact(Miner &miner) override;
+        std::string getWarning() const override;
+        std::string getDisplayChar() const override;
 
 };
 

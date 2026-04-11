@@ -9,7 +9,7 @@
 
 class Creeper : public Inhibitor {
     public:
-    void interact() override;
+    void interact(Miner& miner) override;
     std::string getWarning() const override;
     bool isFatal() const override;
     std::string getDisplayChar() const override;

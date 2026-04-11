@@ -7,7 +7,7 @@
 #include <iostream>
 #include <ostream>
 
-void Enderman::interact() {
+void Enderman::interact(Miner& miner) {
     std::cout << "You accidently encountered an Enderman and it moved you to a random location!" << std::endl;
 }
 

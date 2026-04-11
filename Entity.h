@@ -4,22 +4,25 @@
 
 #ifndef SPA4_HUNT_THE_WUMPUS_LEANOSK_GALVANM_ENTITY_H
 #define SPA4_HUNT_THE_WUMPUS_LEANOSK_GALVANM_ENTITY_H
+
 #include <string>
 
 
+class Miner;
 
 class Entity {
 public:
     virtual ~Entity() {}
 
     // Interaction for when Miner comes across it
-    virtual void interact() = 0;
+    virtual void interact(Miner &miner) = 0;
 
     // Warnings/hints for nearby rooms
     virtual std::string getWarning() const = 0;
 
     // display character for given entity
     virtual std::string getDisplayChar() const = 0;
+
 };
 
 

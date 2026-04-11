@@ -5,7 +5,6 @@
 #include <typeinfo>
 #include <iostream>
 #include "Map.h"
-#include "Player.h"
 #include "Room.h"
 #include "Creeper.h"
 #include "Diamond.h"
@@ -23,7 +22,7 @@ Map::Map() {
     }
     generate_rooms();
     srand(time(0));
-    addEntity(new Player());
+
     addEntity(new Creeper());
     addEntity(new Diamond());
     addEntity(new Enderman());
@@ -32,6 +31,8 @@ Map::Map() {
     addEntity(new Ravine());
     addEntity(new Sword());
 
+    minerCol = 0;
+    minerRow = 0;
 }
 Map::~Map() {
     for (int i = 0; i < MAP_HEIGHT; i++) {
@@ -84,5 +85,30 @@ void Map::printMap() {
 
         }
         cout << endl;
+    }
+}
+
+void Map::teleportMiner() {
+    int newRow, newCol;
+    do {
+        newRow = rand() % MAP_HEIGHT;
+        newCol = rand() % MAP_WIDTH;
+    } while (
+        (newRow == minerRow && newCol == minerCol) ||
+        rooms [newRow][newCol].getEntity() == nullptr);
+    minerRow = newRow;
+    minerCol = newCol;
+    std::cout << "The Enderman teleported you to an empty room!" << std::endl;
+}
+
+void Map::processCurrentRoom() {
+    Entity* entity = rooms[minerRow][minerCol].getEntity();
+
+    if (entity != nullptr) {
+        entity->interact(miner);
+
+        if (dynamic_cast<Enderman*> (entity) != nullptr) {
+            teleportMiner();
+        }
     }
 }

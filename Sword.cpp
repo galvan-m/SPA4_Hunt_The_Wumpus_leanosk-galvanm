@@ -3,12 +3,14 @@
 //
 
 #include "Sword.h"
+#include "Miner.h"
 
 #include <iostream>
 #include <ostream>
 
-void Sword::interact() {
+void Sword::interact(Miner& miner) {
     std::cout << "You found a sword! This can be used to defend yourself against a Creeper!" << std::endl;
+    miner.giveSword();
 }
 
 std::string Sword::getWarning() const {

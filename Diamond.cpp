@@ -7,8 +7,11 @@
 #include <iostream>
 #include <ostream>
 
-void Diamond::interact() {
+#include "Miner.h"
+
+void Diamond::interact(Miner& miner) {
     std::cout << "You found the diamond! Congratulations!!" << std::endl;
+    miner.collectDiamond();
 }
 
 std::string Diamond::getWarning() const {

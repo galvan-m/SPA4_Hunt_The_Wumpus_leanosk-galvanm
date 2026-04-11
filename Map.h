@@ -5,7 +5,7 @@
 #ifndef SPA4_HUNT_THE_WUMPUS_LEANOSK_GALVANM_MAP_H
 #define SPA4_HUNT_THE_WUMPUS_LEANOSK_GALVANM_MAP_H
 #include "Entity.h"
-#include "Player.h"
+#include "Miner.h"
 
 class Room;
 constexpr int MAP_HEIGHT = 6;
@@ -17,10 +17,15 @@ public:
     ~Map();
     void addEntity(Entity *entity);
     void printMap();
+    void teleportMiner();
 
 private:
     void generate_rooms();
+    void processCurrentRoom();
     Room** rooms;
+    Miner miner;
+    int minerRow;
+    int minerCol;
 };
 
 

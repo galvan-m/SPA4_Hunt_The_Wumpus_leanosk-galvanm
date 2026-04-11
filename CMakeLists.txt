@@ -25,5 +25,5 @@ add_executable(SPA4_Hunt_The_Wumpus_leanosk_galvanm
         Diamond.h
         Sword.cpp
         Sword.h
-        Player.cpp
-        Player.h)
+        Miner.cpp
+        Miner.h)

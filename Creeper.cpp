@@ -3,12 +3,19 @@
 //
 
 #include "Creeper.h"
+#include "Miner.h"
 
 #include <iostream>
-#include <ostream>
 
-void Creeper::interact() {
-    std::cout<<"Oh no! You encountered a Creeper! You got blown up and died. Game over."<<std::endl;
+
+void Creeper::interact(Miner& miner) {
+    if (miner.hasWeapon()) {
+        std::cout << "A Creeper attacks, but you defend yourself with your trusty sword!" << std::endl;
+        miner.useSword();
+    } else {
+        std::cout<<"Oh no! You encountered a Creeper! You got blown up and died. Game over."<<std::endl;
+        miner.kill();
+    }
 }
 
 std::string Creeper::getWarning() const {
