@@ -1,5 +1,9 @@
 # Build steps
-
+To run the Makefile:
+ - Open your Ubuntu terminal
+ - Navigate to folder where game exists
+ - Input: make
+ - Run the game by inputting: ./SPA4
 # tool/version
 - C++ (C++14)
 - CLion IDE
